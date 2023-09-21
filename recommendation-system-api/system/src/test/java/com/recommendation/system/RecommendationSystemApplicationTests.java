@@ -1,10 +1,10 @@
-package com.rec.sys;
+package com.recommendation.system;
 
 import org.junit.jupiter.api.Test;
 import org.springframework.boot.test.context.SpringBootTest;
 
 @SpringBootTest
-class SysApplicationTests {
+class RecommendationSystemApplicationTests {
 
 	@Test
 	void contextLoads() {
