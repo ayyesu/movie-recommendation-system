@@ -3,9 +3,11 @@ import axios from 'axios';
 
 const Login = () => {
     const [formData, setFormData] = useState({
-        email: '',
+        username: '',
         password: '',
     });
+
+    console.log('formData:', formData);
 
     const handleChange = (e) => {
         const {name, value} = e.target;
@@ -19,12 +21,12 @@ const Login = () => {
         e.preventDefault();
 
         try {
-            const response = await axios.post('http://localhost:8080/login', {
+            const response = await axios.post('http://localhost:9090', {
                 username,
                 password,
             });
 
-            // Handle successful login (e.g., redirect to dashboard)
+            console.log('Login response:', response);
         } catch (error) {
             console.error('Error logging in:', error);
             // Handle login error
@@ -46,14 +48,14 @@ const Login = () => {
                                 Email
                             </label>
                             <input
-                                id='email'
-                                name='email'
-                                type='email'
+                                id='username'
+                                name='username'
+                                type='username'
                                 autoComplete='email'
                                 required
                                 className='appearance-none rounded-none relative block w-full px-3 py-2 border border-gray-300 placeholder-gray-500 text-gray-900 rounded-md focus:outline-none focus:ring-blue-500 focus:border-blue-500 focus:z-10 sm:text-sm'
-                                placeholder='Email address'
-                                value={formData.email}
+                                placeholder='username'
+                                value={formData.username}
                                 onChange={handleChange}
                             />
                         </div>
