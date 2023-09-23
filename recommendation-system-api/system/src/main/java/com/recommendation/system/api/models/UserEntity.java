@@ -21,4 +21,15 @@ public class UserEntity {
         inverseJoinColumns = @JoinColumn(name = "role_id", referencedColumnName = "id"))
     private List<Role> roles = new ArrayList<>();
 
+    public String getUsername() {
+        return username;
+    }
+
+    public String getPassword() {
+        return password;
+    }
+
+    public List<Role> getRoles() {
+        return roles;
+    }
 }
