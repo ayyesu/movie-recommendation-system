@@ -1,11 +1,15 @@
 package com.recommendation.system.api.models;
 
 import jakarta.persistence.*;
+import lombok.Data;
+import lombok.NoArgsConstructor;
 
 import java.util.ArrayList;
 import java.util.List;
 
 @Entity
+@Data
+@NoArgsConstructor
 @Table(name = "users")
 public class UserEntity {
 
@@ -31,5 +35,17 @@ public class UserEntity {
 
     public List<Role> getRoles() {
         return roles;
+    }
+
+    public void setUsername(String username) {
+        this.username = username;
+    }
+
+    public void setPassword(String password) {
+        this.password = password;
+    }
+
+    public void setRoles(List<Role> roles) {
+        this.roles = roles;
     }
 }
