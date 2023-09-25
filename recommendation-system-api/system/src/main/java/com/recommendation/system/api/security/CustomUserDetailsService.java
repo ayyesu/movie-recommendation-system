@@ -4,7 +4,6 @@ import com.recommendation.system.api.models.Role;
 import com.recommendation.system.api.models.UserEntity;
 import com.recommendation.system.api.repository.UserRepository;
 import org.springframework.beans.factory.annotation.Autowired;
-import org.springframework.context.annotation.Bean;
 import org.springframework.security.core.GrantedAuthority;
 import org.springframework.security.core.authority.SimpleGrantedAuthority;
 import org.springframework.security.core.userdetails.User;
