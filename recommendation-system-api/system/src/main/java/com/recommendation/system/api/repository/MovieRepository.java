@@ -1,2 +1,10 @@
-package com.recommendation.system.api.repository;public interface MovieRepository {
+package com.recommendation.system.api.repository;
+
+import com.recommendation.system.api.models.MovieEntity;
+import org.springframework.data.jpa.repository.JpaRepository;
+import java.util.List;
+
+public interface MovieRepository extends JpaRepository<MovieEntity, Long> {
+    List<MovieEntity> findByGenre(String genre);
 }
+
