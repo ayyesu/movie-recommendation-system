@@ -25,6 +25,13 @@ public class UserEntity {
         inverseJoinColumns = @JoinColumn(name = "role_id", referencedColumnName = "id"))
     private List<Role> roles = new ArrayList<>();
 
+    @OneToMany(mappedBy = "user", cascade = CascadeType.ALL)
+    private List<InteractionEntity> interactions;
+
+    public List<InteractionEntity> getInteractions() {
+        return interactions;
+    }
+
     public String getUsername() {
         return username;
     }
