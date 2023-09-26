@@ -8,10 +8,7 @@ import com.recommendation.system.api.repository.MovieRepository;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 
-import java.util.ArrayList;
-import java.util.HashSet;
-import java.util.List;
-import java.util.Set;
+import java.util.*;
 import java.util.stream.Collectors;
 
 @Service
@@ -23,18 +20,16 @@ public class RecommendationService {
     public List<MovieEntity> getRecommendations(UserEntity user) {
         List<InteractionEntity> interactions = user.getInteractions();
 
-        Set<String> userGenres = new HashSet<>();
+        Set<GenreEntity> userGenres = new HashSet<>();
         for (InteractionEntity interaction : interactions) {
             MovieEntity movie = interaction.getMovie();
             List<GenreEntity> genres = movie.getGenres();
-            for (GenreEntity genreEntity: genres){
-                userGenres.add(genreEntity.getName());
-            }
+            userGenres.addAll(genres);
         }
 
         List<MovieEntity> recommendedMovies = new ArrayList<>();
-        for (String genre : userGenres) {
-            List<MovieEntity> moviesWithGenre = movieRepository.findByGenre(genre);
+        for (GenreEntity genre : userGenres) {
+            List<MovieEntity> moviesWithGenre = movieRepository.findByGenresIn(Collections.singletonList(genre));
             recommendedMovies.addAll(moviesWithGenre);
         }
 
@@ -43,5 +38,6 @@ public class RecommendationService {
 
         return recommendedMovies;
     }
+
 }
 
