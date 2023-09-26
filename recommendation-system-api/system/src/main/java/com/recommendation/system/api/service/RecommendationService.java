@@ -21,11 +21,11 @@ public class RecommendationService {
     private MovieRepository movieRepository;
 
     public List<MovieEntity> getRecommendations(UserEntity user) {
-        List<InteractionEntity> interactions = user.getInteractions(); // Assuming interactions are stored in User
+        List<InteractionEntity> interactions = user.getInteractions();
 
         Set<String> userGenres = new HashSet<>();
         for (InteractionEntity interaction : interactions) {
-            MovieEntity movie = interaction.getMovie(); // Assuming each interaction has a reference to a Movie
+            MovieEntity movie = interaction.getMovie();
             List<GenreEntity> genres = movie.getGenres();
             for (GenreEntity genreEntity: genres){
                 userGenres.add(genreEntity.getName());
@@ -34,7 +34,7 @@ public class RecommendationService {
 
         List<MovieEntity> recommendedMovies = new ArrayList<>();
         for (String genre : userGenres) {
-            List<MovieEntity> moviesWithGenre = movieRepository.findByGenre(genre); // Custom query method in repository
+            List<MovieEntity> moviesWithGenre = movieRepository.findByGenre(genre);
             recommendedMovies.addAll(moviesWithGenre);
         }
 

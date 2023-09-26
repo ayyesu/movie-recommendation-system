@@ -21,7 +21,7 @@ public class RecommendationController {
     private RecommendationService recommendationService;
 
     @Autowired
-    private UserService userService; // Assuming you have a UserService
+    private UserService userService;
 
     @GetMapping("/user/{userId}")
     public ResponseEntity<List<MovieEntity>> getRecommendationsForUser(@PathVariable Integer userId) {

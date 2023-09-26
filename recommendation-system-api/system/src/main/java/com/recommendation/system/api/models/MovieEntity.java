@@ -15,7 +15,6 @@ public class MovieEntity {
     @Column(nullable = false)
     private String title;
 
-    // Add any other movie-related attributes here
 
     @ManyToMany
     @JoinTable(

@@ -15,6 +15,5 @@ public class UserService {
         return userRepository.findById(userId).orElse(null);
     }
 
-    // You may also define other methods related to user management here
 }
 
