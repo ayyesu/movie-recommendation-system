@@ -18,7 +18,7 @@ public class MovieEntity {
 
     @ManyToMany
     @JoinTable(
-            name = "movie_genres",
+            name = "genres",
             joinColumns = @JoinColumn(name = "movie_id"),
             inverseJoinColumns = @JoinColumn(name = "genre_id")
     )
@@ -49,6 +49,5 @@ public class MovieEntity {
         this.genres = genres;
     }
 
-    // Add getters and setters for other attributes
 }
 
