@@ -17,11 +17,16 @@ import java.util.List;
 @RequestMapping("/recommendations")
 public class RecommendationController {
 
-    @Autowired
+
     private RecommendationService recommendationService;
 
-    @Autowired
     private UserService userService;
+
+    @Autowired
+    public RecommendationController(RecommendationService recommendationService, UserService userService) {
+        this.recommendationService = recommendationService;
+        this.userService = userService;
+    }
 
     @GetMapping("/user/{userId}")
     public ResponseEntity<List<MovieEntity>> getRecommendationsForUser(@PathVariable Integer userId) {
